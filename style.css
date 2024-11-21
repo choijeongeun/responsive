@@ -1,0 +1,149 @@
+html,body{
+    width: 100%;
+    height: 100%;
+    font-size: 10px;
+}
+*{margin: 0;padding: 0;
+box-sizing: border-box;
+}
+li{list-style: none;}
+a{color:inherit;text-decoration: none;}
+img{vertical-align: top;}
+.blind{display: none;}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:#333;
+    font-size: 2rem; 
+    line-height: 1;
+   /* padding:0 20px;*/
+}
+
+#wrap{
+    width: 100%;
+    height: 100vh;
+    padding:0 2rem;
+
+}
+header{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+    background: burlywood;
+}
+
+nav{display: flex;
+margin-left: auto;
+gap:2rem;
+}
+
+nav ul{display: flex;
+gap:2rem;
+}
+.toggle_btn{display: none;}
+main{display: flex;
+/*flex-direction: row;
+flex-wrap: wrap;*/
+flex-flow:row wrap;
+height: calc(100vh - 240px);
+margin:2rem 0;
+gap:2rem;
+background: pink;
+}
+main section{
+    width:calc(100% - 40px - 40%);
+    background: orangered;
+}
+main aside{
+    width:20%;
+    background: olive;
+}
+.aside1{
+    order:-1;
+}
+footer{
+    width: 100%;
+    height: 10rem;
+    background: burlywood;
+}
+
+@media screen and (max-width:1200px) {/*0~1200까지*/
+    body{
+        background: yellow;
+    }
+    main section{
+        width:100%;
+        background: orangered;
+    }
+    main aside{
+        width:calc((100% - 2rem) / 2);
+        background: olive;
+    }
+    .aside1{
+        order:0;
+    }
+}/*~1200*/
+
+@media screen and (max-width:768px) {
+ body.show:after{
+   
+        content:"";
+        position: absolute;
+                left:0;top:0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,.7);
+    }
+    header{position: relative;}
+    nav{
+        z-index:100;
+   display: none;
+     position: absolute;
+     top:10rem;
+     flex-direction: column;/*세로정렬*/
+     width: 100%;
+     background: #fff;
+     padding:2rem 0;
+     text-align: center;
+   /*  box-shadow: 0 0 10px #000 inset;     /*inset 안쪽으로 그림자*/  
+   box-shadow: 0 0 10px rgba(0,0,0,.5) ;
+    }
+ 
+    nav a{display: block;
+    width: 100%;}
+    nav ul{flex-direction: column;
+    margin-bottom: 2rem;
+    }
+
+    nav ul li a{
+        padding:1rem 0;
+        transition: all .2s;
+       }
+       nav ul li a:hover{
+        font-size:2.2rem ;
+        font-weight: bold;
+       }
+    nav.show{display: block;
+    }
+    .mode a{
+        padding:2rem 0;
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+        color:#fff;
+    }
+    main aside{
+        width:100%;
+        background: olive;
+    }  
+    
+   
+    .toggle_btn{
+        position: relative;
+        z-index:100;
+        display: block;
+    margin-left: auto;
+    font-size: 4rem;
+    cursor: pointer;
+    }
+nav.show + .toggle_btn{color:#fff;}
+}
